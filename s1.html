@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     
+function add(a, b) {
+    return a + b;
+}
+
+
+function subtract(a, b) {
+    return a - b;
+}
+
+
+function multiply(a, b) {
+    return a * b;
+}
+
+
+function divide(a, b) {
+    if (b === 0) {
+        return "Không thể chia cho 0!";
+    }
+    return a / b;
+}
+
+
+function calculator() {
+    let choice;
+    do {
+        choice = parseInt(prompt(`Chọn một phép toán:
+        1. Cộng hai số
+        2. Trừ hai số
+        3. Nhân hai số
+        4. Chia hai số
+        5. Thoát chương trình`));
+
+        if (choice >= 1 && choice <= 4) {
+            let num1 = parseFloat(prompt("Nhập số thứ nhất:"));
+            let num2 = parseFloat(prompt("Nhập số thứ hai:"));
+            let result;
+
+            switch (choice) {
+                case 1:
+                    result = add(num1, num2);
+                    alert(`Kết quả: ${num1} + ${num2} = ${result}`);
+                    break;
+                case 2:
+                    result = subtract(num1, num2);
+                    alert(`Kết quả: ${num1} - ${num2} = ${result}`);
+                    break;
+                case 3:
+                    result = multiply(num1, num2);
+                    alert(`Kết quả: ${num1} × ${num2} = ${result}`);
+                    break;
+                case 4:
+                    result = divide(num1, num2);
+                    alert(`Kết quả: ${num1} ÷ ${num2} = ${result}`);
+                    break;
+            }
+        } else if (choice !== 5) {
+            alert("Vui lòng nhập lựa chọn hợp lệ (1-5)!");
+        }
+    } while (choice !== 5);
+
+    alert("Cảm ơn bạn đã sử dụng chương trình!");
+}
+
+
+calculator();
+
+    </script>
+</body>
+</html>

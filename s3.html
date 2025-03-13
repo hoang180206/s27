@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let choice;
+        do{
+            choice=parseInt(prompt(`nhập lựa chọn:
+            1.Tính diện tích hình tròn.
+            2.Tính chu vi hình tròn.
+            3.Tính diện tích hình chữ nhật.
+            4.Tính chu vi hình chữ nhật.
+            5.Thoát`));
+
+            if(choice >=1 && choice<=4){
+        let num1 = parseFloat(prompt("Nhập số thứ nhất:"));
+        let num2 = parseFloat(prompt("Nhập số thứ hai:"));
+        let result;
+
+        switch(choice){
+            case 1:
+                result= num1*num2*3.1414;
+                alert(`bán kính hình tròn là: ${result}`);
+                break;
+            case 2:
+                result=num1*2*3.14;
+                alert(`chu vi hình tròn là:${result}`);
+                break;
+            case 3:
+                result=num1*num2;
+                alert(` diện tích hình chữ nhậtlà :${result}.`);
+                break;
+            case 4:
+                result=(num1+num2)*2;
+                alert(` chu vi hình chữ nhật là: ${result}.`);   
+                break;S     
+        }
+            }else if (choice !== 5) {
+        alert("Vui lòng nhập lựa chọn hợp lệ (1-5)!");
+    }
+        }while(choice!==5);
+    </script>
+</body>
+</html>
