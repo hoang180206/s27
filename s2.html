@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     let students = []; 
+
+let addStudents = () => {
+    let numOfStudents = parseInt(prompt("Nhập số lượng sinh viên: "));
+    if (isNaN(numOfStudents) || numOfStudents <= 0) {
+        console.log("Số lượng sinh viên không hợp lệ.");
+        return;
+    }
+    for (let i = 0; i < numOfStudents; i++) {
+        let name = prompt(`Nhập tên sinh viên thứ ${i + 1}:`).trim();
+        if (name) {
+            students.push(name);
+        } else {
+            console.log("Tên sinh viên không được để trống.");
+            i--; 
+        }
+    }
+    console.log("Danh sách sinh viên đã được nhập thành công.");
+};
+
+
+let displayStudents = () => {
+    if (students.length === 0) {
+        console.log("Danh sách sinh viên trống.");
+        return;
+    }
+    alert(`Danh sách sinh viên:${students}`);
+    students.forEach((student, index) => {
+        console.log(`${index + 1}. ${student}`);
+    });
+};
+
+
+let findStudentByName = () => {
+    let name = prompt("Nhập tên sinh viên cần tìm:").trim();
+    let found = students.find(student => student.toLowerCase() === name.toLowerCase());
+    console.log(found ? `Đã tìm thấy sinh viên: ${found}` : "Không tìm thấy sinh viên.");
+};
+
+
+let deleteStudentByName = () => {
+    let name = prompt("Nhập tên sinh viên cần xóa:").trim();
+    let index = students.findIndex(student => student.toLowerCase() === name.toLowerCase());
+    if (index !== -1) {
+        let deleted = students.splice(index, 1);
+        console.log(`Đã xóa sinh viên: ${deleted}`);
+    } else {
+        console.log("Không tìm thấy sinh viên để xóa.");
+    }
+};
+
+
+let mainMenu = () => {
+    let choice;
+    do {
+        choice = parseInt(prompt(`MENU QUẢN LÝ SINH VIÊN
+1. Nhập danh sách sinh viên
+2. Hiển thị danh sách sinh viên
+3. Tìm sinh viên theo tên
+4. Xóa sinh viên khỏi danh sách
+5. Thoát
+Nhập lựa chọn của bạn:`));
+
+        switch (choice) {
+            case 1:
+                addStudents();
+                break;
+            case 2:
+                displayStudents();
+                break;
+            case 3:
+                findStudentByName();
+                break;
+            case 4:
+                deleteStudentByName();
+                break;
+            case 5:
+                console.log("Thoát chương trình.");
+                break;
+            default:
+                console.log("Lựa chọn không hợp lệ. Vui lòng thử lại.");
+        }
+    } while (choice !== 5);
+};
+
+mainMenu();
+
+    </script>
+</body>
+</html>
